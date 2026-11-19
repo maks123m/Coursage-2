@@ -1,0 +1,226 @@
+@font-face {
+    font-family: 'Binggrae';
+    src: url('../fonts/Binggrae-Bold.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Alatsi';
+    src: url('../fonts/Alatsi-Regular.ttf') format('opentype');
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #242424;
+}
+.wrapper {
+    max-width: 85%;
+    margin: 0 auto;
+    padding: 0 3vw;
+}
+.container {
+    background-color: #323232;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2vh 5vw;
+    gap: 2vw;
+}
+.logo-container {
+    display: flex;
+    align-items: center;
+    background-color: #FFA600;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+    box-shadow: 0 4px 10px rgba(0, 0, 18, 0.1);
+    gap: 5px;
+}
+.logo-letter, .logo-rest {
+    font-size: 2.5em;
+    font-family: 'Alatsi', 'sans-serif';
+}
+.logo-icon {
+    width: 3em;
+    height: 3em;
+}
+.menu-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 2vw;
+}
+.menu-nav a {
+    background-color: #FFA600;
+    color: black;
+    padding: 0.6em 1.2em;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1em;
+    font-family: 'Binggrae', 'sans-serif';
+    display: flex;
+    align-items: center;
+}
+.menu-fav {
+    width: 3.5em;
+    height: 2.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menu-fav img {
+    width: 50px;
+    height: 25px;
+}
+.footer {
+    background: #323232;
+    padding: 4vh 0 3vh;
+    color: #F6F6F6;
+    font-family: 'Binggrae', 'sans-serif';
+    margin-top: 8vh;
+}
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5vh;
+    justify-content: space-between;
+    padding: 0 5vw;
+}
+.footer-left {
+    margin-top: 5vh;
+}
+.footer-center {
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    margin-top: 5vh;
+}
+.footer-btn {
+    background: #FFA600;
+    height: 3em;
+    border-radius: 8px;
+    color: black;
+    font-size: 1.1em;
+    text-decoration: none;
+    width: 15em;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.footer-right {
+    display: flex;
+    gap: 4vw;
+}
+.social-block {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.social-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+.social-row {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    font-size: 1.1em;
+}
+.social-circle {
+    width: 3.5em;
+    height: 3.5em;
+    border-radius: 50%;
+    background: #F6F6F6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.social-circle img {
+    width: 60%;
+    object-fit: scale-down;
+}
+.mail-block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.mail-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+}
+.mail-text {
+    font-size: 1.2em;
+}
+.footer-bottom {
+    text-align: center;
+    margin-top: 4vh;
+    color: #FFA600;
+    font-size: 1.1em;
+}
+@media(max-width:800px){
+    .container {
+        justify-content: center;
+    }
+    .menu-nav ul{
+        justify-content: center;
+    }
+    .footer-container{
+        justify-content: center;
+    }
+    .footer-right{
+        gap:10vw
+    }
+    .footer-left{
+        display: flex;
+        align-items: center;
+    }
+}
+@media (max-width: 426px) {
+    .wrapper {
+        max-width: 100%;
+        padding: 0 4vw;
+    }
+    .container {
+        padding: 3vh 4vw;
+        gap: 3vh;
+    }
+    .menu-nav ul {
+        flex-direction: column;
+        gap: 2vh;
+        width: 100%;
+    }
+    .menu-nav ul li:last-of-type {
+        display: flex;
+        justify-content: center;
+    }
+    .menu-nav a {
+        padding: 0.8em;
+    }
+    .menu-fav {
+        width: 50%;
+        height: 3em;
+    }
+    .menu-fav img {
+        object-fit: scale-down;
+    }
+    .footer-right{
+        flex-direction: column;
+    }
+    .mail-text {
+        text-align: center;
+    }
+    .footer-bottom {
+        font-size: 1em;
+        padding: 0 4vw;
+    }
+    .social-block{
+        flex-wrap: wrap;
+        justify-content: center;
+        flex-direction: row;
+    }
+}

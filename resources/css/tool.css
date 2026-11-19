@@ -1,0 +1,218 @@
+.back {
+    margin: 30px 80px 0;
+}
+.back-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 50px;
+    background: #FFA600;
+    color: black;
+    text-decoration: none;
+    font-family: 'Binggrae', 'sans-serif';
+    font-size: 20px;
+    border-radius: 10px;
+}
+.instrument-title {
+    color: #F6F6F6;
+    font-size: 3vw;
+    font-family: 'Binggrae', 'sans-serif';
+    text-align: center;
+    margin-bottom: 50px;
+}
+.instrument-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    margin-bottom: 40px;
+}
+.category {
+    position: absolute;
+    background: #FFA600;
+    font-family: 'Binggrae', 'sans-serif';
+    font-size: 1.5vw;
+    padding: 70px 70px;
+    min-width: 220px;
+    text-align: center;
+}
+.category.left {
+    left: calc(-50vw + 50% + 10px);
+    border-radius: 0 100px 100px 0;
+}
+.category.right {
+    right: calc(-50vw + 50% + 10px);
+    border-radius: 100px 0 0 100px;
+}
+.instrument-image {
+    width: 30vw;
+    transform: rotate(90deg);
+}
+.audio-section {
+    display: flex;
+    justify-content: space-around;
+    gap: 3vw;
+    margin-bottom: 60px;
+}
+.audio-player {
+    display: flex;
+    align-items: center;
+
+}
+.note-icon {
+    width: 5vw;
+    height: 5vw;
+    object-fit: scale-down;
+    border-radius: 50%;
+    background-color: #FFA600;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.waveform {
+    width: 20vw;
+}
+.sound {
+    display: flex;
+    width: 23vw;
+    height: 3vw;
+    background: #F6F6F6;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+}
+.section-title {
+    color: #F6F6F6;
+    font-size: 2.5vw;
+    font-family: 'Binggrae', 'sans-serif';
+    text-align: center;
+}
+.section-title::after {
+    content: '';
+    display: block;
+    width: 50vw;
+    height: 3px;
+    background-color: #F6F6F6;
+    margin: 6px auto;
+}
+.tools-grid {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 260px);
+    justify-content: center;
+    gap: 2vw 3vw;
+}
+.tool-card {
+    width: 18vw;
+    border-radius: 35px;
+    overflow: hidden;
+}
+.tool-card img {
+    width: 18vw;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+}
+.tool-info {
+    background: #FFA600;
+    padding: 16px 18px;
+    font-family: 'Binggrae', 'sans-serif';
+    font-size: 1.5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.tool-info .heart {
+    width: 1em;
+    height: 1em;
+    object-fit: contain;
+}
+@media (max-width: 800px) {
+    .instrument-title {
+        font-size: 4vw;
+    }
+    .instrument-header {
+        height: 60vh;
+    }
+    .category {
+        font-size: 3vw;
+        padding: 6vw 2vw;
+        min-width: 30vw;
+    }
+    .category.left {
+        left: 0;
+    }
+    .category.right {
+        right: 0;
+    }
+    .instrument-image {
+        width: 30vw;
+        transform: none;
+    }
+    .audio-section {
+        gap: 20px;
+    }
+    .note-icon {
+        width: 50px;
+        height: 50px;
+    }
+    .waveform {
+        width: 200px;
+    }
+    .sound {
+        width: 250px;
+        height: 40px;
+    }
+    .section-title {
+        font-size: 3vw;
+    }
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+    }
+    .tool-card {
+        width: 30vw;
+    }
+    .tool-card img {
+        width: 100%;
+    }
+    .tool-info {
+        font-size: 2.2vw;
+    }
+    .tool-card:nth-child(3) {
+        grid-column: 1 / -1;
+    }
+    .back {
+        margin: 20px 50px;
+    }
+}
+@media (max-width: 425px){
+    .audio-section{
+        flex-direction: column;
+        align-items: center;
+    }
+    .back {
+        display: flex;
+        justify-content: center;
+    }
+    .instrument-title {
+        font-size: 8vw;
+        margin: 0;
+    }
+    .instrument-image {
+        width: 60vw;
+    }
+    .section-title {
+        font-size: 5vw;
+    }
+    .tools-grid {
+        grid-template-columns: 1fr;
+        gap: 8vw;
+    }
+    .tool-card {
+        width: 60vw;
+    }
+    .tool-info {
+        font-size: 4.5vw;
+    }
+}

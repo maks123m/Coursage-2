@@ -1,0 +1,122 @@
+.instrument-types {
+    margin-top: 40px;
+    text-align: center;
+}
+.instrument-types h2 {
+    font-family: 'Binggrae', 'sans-serif';
+    font-size: 3vw;
+    color: #F6F6F6;
+    margin-bottom: 50px;
+}
+.slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
+}
+.arrow-btn {
+    min-width: 4vw;
+    min-height: 4vw;
+    background: #ffffff;
+    border: 3px solid black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.arrow-btn img {
+    width: 2.5vw;
+    height: 2.5vw;
+}
+.cards-row {
+    display: flex;
+    align-items: center;
+    gap: 3vw;
+}
+.type-card {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.type-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.type-card span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 12px 0;
+    font-family: 'Binggrae', 'sans-serif';
+    font-size: 1.4vw;
+    color: white;
+}
+.type-card.small {
+    width: 12vw;
+    height: 30vh;
+}
+.type-card.medium {
+    width: 15vw;
+    height: 35vh;
+}
+.type-card.big {
+    width: 17vw;
+    height: 45vh;
+}
+.type-card.text-small span {
+    font-size: 1.1vw;
+}
+.type-card.text-medium span {
+    font-size: 1.5vw;
+}
+.type-card.text-big span {
+    font-size: 2vw;
+}
+@media (max-width: 800px) {
+    .arrow-btn {
+        display: none;
+    }
+    .cards-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4vw;
+        justify-items: center;
+    }
+    .type-card.small,
+    .type-card.medium,
+    .type-card.big {
+        width: 35vw;
+        height: 50vh;
+    }
+    .type-card:nth-child(5) {
+        grid-column: 1 / -1;
+    }
+    .type-card.text-small span,
+    .type-card.text-medium span,
+    .type-card.text-big span {
+        font-size: 2.5vw;
+    }
+}
+@media (max-width: 425px) {
+    .cards-row {
+        grid-template-columns: 1fr;
+    }
+    .type-card.small,
+    .type-card.medium,
+    .type-card.big {
+        width: 60vw;
+    }
+    .type-card.text-small span,
+    .type-card.text-medium span,
+    .type-card.text-big span {
+        font-size: 5vw;
+    }
+    .instrument-types h2 {
+        font-size: 5vw;
+    }
+}

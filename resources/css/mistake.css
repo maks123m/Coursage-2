@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'Binggrae';
+    src: url('fonts/Binggrae-Bold.otf') format('opentype');
+}
+body {
+    background: #242424;
+    font-family: 'Binggrae';
+    font-size: 1vw;
+}
+.error-wrapper {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.error-block {
+    background: #323232;
+    padding: 4em 5em;
+    border-radius: 2em;
+    text-align: center;
+    color: #F6F6F6;
+    box-shadow: 0 0 2.5vw rgba(0, 0, 0, 0.35);
+}
+.error-title {
+    font-size: 10vw;
+    color: #FFA600;
+}
+.error-text {
+    font-size: 2.2em;
+    margin-bottom: 0.8em;
+}
+.error-desc {
+    font-size: 1.3em;
+    margin-bottom: 2em;
+}
+.error-btn {
+    padding: 0.8em 1.8em;
+    background: #FFA600;
+    border-radius: 0.8em;
+    font-size: 1.4em;
+    color: black;
+    text-decoration: none;
+}
+@media (max-width: 800px) {
+    body {
+        font-size: 1.6vw;
+    }
+}
+@media (max-width: 425px) {
+    body {
+        font-size: 3.5vw;
+    }
+    .error-wrapper {
+        padding: 4vh 4vw;
+    }
+    .error-title {
+        font-size: 22vw;
+    }
+    .error-desc {
+        font-size: 1em;
+    }
+    .error-btn {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+}
+

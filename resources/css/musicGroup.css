@@ -1,0 +1,98 @@
+.band-section {
+    text-align: center;
+}
+.band-title {
+    color: #F6F6F6;
+    font-size: 5vw;
+    margin-bottom: 40px;
+    font-family: 'Binggrae', 'sans-serif';
+}
+.band-image-wrapper {
+    width: 70%;
+    margin: 0 auto;
+    border: 3px solid #FFA600;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(255, 166, 0);
+}
+.band-image {
+    width: 100%;
+    display: block;
+}
+.band-info-row {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 2vw;
+    flex-wrap: wrap;
+    font-family: 'Binggrae', 'sans-serif';
+}
+.band-info-card {
+    background: #FFA600;
+    font-size: 25px;
+    padding: 25px 30px;
+    width: 61vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.band-about {
+    margin: 60px auto;
+    background: #F6F6F6;
+    width: 70%;
+    padding: 35px 45px;
+    font-size: 20px;
+    border-radius: 30px;
+    font-family: 'Binggrae', 'sans-serif';
+}
+#card-left {
+    border-radius: 30px 0 0 30px;
+}
+#card-right{
+    border-radius: 0 30px 30px 0;
+}
+.back {
+    margin: 30px 80px 0;
+}
+.back-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 50px;
+    background: #FFA600;
+    color: black;
+    text-decoration: none;
+    font-family: 'Binggrae', 'sans-serif';
+    font-size: 20px;
+    border-radius: 10px;
+}
+@media (max-width: 800px) {
+    .back {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+    .band-title{
+        margin-bottom: 10px;
+    }
+    .band-info-card {
+        font-size: 16px;
+        width: 45vw;
+    }
+}
+@media (max-width: 426px) {
+    .band-info-card {
+        font-size: 15px;
+        width: 100vw;
+    }
+    .band-about{
+        font-size: 15px;
+    }
+    #card-right{
+        margin-right: 30px;
+    }
+    #card-left{
+        margin-left: 30px;
+    }
+}
