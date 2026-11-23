@@ -2,16 +2,12 @@
 
 @section('title', 'SoundCrafted — Музыкальные группы')
 
-@push('styles')
-    @vite('resources/css/musicGroupMain.css')
-@endpush
-
 @section('content')
 @push('scripts')
     @vite('resources/js/feedback.js')
 @endpush
-
 @push('styles')
+    @vite('resources/css/musicGroupMain.css')
     @vite('resources/css/feedback.css')
 @endpush
 

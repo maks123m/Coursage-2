@@ -16,7 +16,6 @@
         <form action="{{ route('survey.result') }}" method="POST" class="survey-form">
             @csrf
             
-            <!-- Вопрос 1 -->
             <div class="survey-question">
                 <p>1. Какая музыка вам больше нравится?</p>
                 <label class="survey-option"><input type="radio" name="q1" value="3" required> Классика и акустика</label>
@@ -25,7 +24,6 @@
                 <label class="survey-option"><input type="radio" name="q1" value="6" required> Электронная музыка и синтезаторы</label>
             </div>
 
-            <!-- Вопрос 2 -->
             <div class="survey-question">
                 <p>2. Что для вас важнее в инструменте?</p>
                 <label class="survey-option"><input type="radio" name="q2" value="3" required> Мелодичность и плавность</label>
@@ -34,7 +32,6 @@
                 <label class="survey-option"><input type="radio" name="q2" value="6" required> Возможность создавать разные звуки</label>
             </div>
 
-            <!-- Вопрос 3 -->
             <div class="survey-question">
                 <p>3. Как вы предпочитаете играть?</p>
                 <label class="survey-option"><input type="radio" name="q3" value="3" required> Перебирать струны пальцами</label>
@@ -43,7 +40,6 @@
                 <label class="survey-option"><input type="radio" name="q3" value="6" required> Нажимать на клавиши</label>
             </div>
 
-            <!-- Вопрос 4 -->
             <div class="survey-question">
                 <p>4. Ваш любимый жанр?</p>
                 <label class="survey-option"><input type="radio" name="q4" value="3" required> Фолк и акустический рок</label>
@@ -52,7 +48,6 @@
                 <label class="survey-option"><input type="radio" name="q4" value="6" required> Поп и электроника</label>
             </div>
 
-            <!-- Вопрос 5 -->
             <div class="survey-question" style="border-bottom: none; padding-bottom: 0;">
                 <p>5. Какой инструмент вызывает у вас больше эмоций?</p>
                 <label class="survey-option"><input type="radio" name="q5" value="3" required> Гитара или скрипка</label>
@@ -65,10 +60,8 @@
         </form>
 
     @else
-        <!-- Результаты -->
         <div class="survey-results">
             <h1 class="survey-title">Мы подобрали для вас инструменты!</h1>
-            
             @if($recommended->isNotEmpty())
                 <div class="tools-grid">
                     @foreach($recommended as $instrument)

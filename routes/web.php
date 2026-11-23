@@ -19,15 +19,17 @@ Route::get('/types', function () {
 //каталог всех инструментов
 Route::get('/catalog', function (\Illuminate\Http\Request $request) {
     $query = \App\Models\MusicInstrument::query();
-
-    // Поиск по названию
+    $category = null;
     if ($request->has('search') && $request->search != '') {
         $query->where('Name', 'like', '%' . $request->search . '%');
     }
-
+    if ($request->has('category') && $request->category != '') {
+        $query->where('Category_ID', $request->category);
+        $category = \App\Models\Category::find($request->category); 
+    }
     $instruments = $query->paginate(6)->withQueryString();
     $favoriteInstrumentIds = auth()->check() ? \App\Models\Favorite::where('User_ID', auth()->id())->whereNotNull('Instrument_ID')->pluck('Instrument_ID')->toArray() : [];
-    return view('pages.catalog', ['instruments' => $instruments, 'favoriteInstrumentIds' => $favoriteInstrumentIds]);
+    return view('pages.catalog', ['instruments' => $instruments, 'category' => $category, 'favoriteInstrumentIds' => $favoriteInstrumentIds]);
 })->name('catalog');
 
 // Конкретный инструмент
@@ -37,24 +39,17 @@ Route::get('/tool/{id}', function ($id) {
 })->name('tool');
 
 // Группы
-
 Route::get('/groups', function (\Illuminate\Http\Request $request) {
     $query = \App\Models\MusicGroup::query();
-
     if ($request->has('search') && $request->search != '') {
         $query->where('Name', 'like', '%' . $request->search . '%');
     }
-
     if ($request->has('genre') && $request->genre != '') {
-
         $genreId = ($request->genre == 'Рок') ? 1 : (($request->genre == 'Поп') ? 2 : 3);
         $query->where('Genre_ID', $genreId);
     }
-
-
     $groups = $query->paginate(6)->withQueryString();
     $favoriteGroupIds = auth()->check() ? \App\Models\Favorite::where('User_ID', auth()->id())->whereNotNull('Group_ID')->pluck('Group_ID')->toArray() : [];
-
     return view('pages.groups', ['groups' => $groups, 'favoriteGroupIds' => $favoriteGroupIds]);
 })->name('groups');
 

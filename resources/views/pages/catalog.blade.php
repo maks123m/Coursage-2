@@ -5,13 +5,10 @@
 @section('content')
 @push('styles')
     @vite('resources/css/toolsMain.css')
+    @vite('resources/css/feedback.css')
 @endpush
 @push('scripts')
     @vite('resources/js/feedback.js')
-@endpush
-
-@push('styles')
-    @vite('resources/css/feedback.css')
 @endpush
 
 <div id="discussion">
@@ -42,9 +39,13 @@
 </div>
 <div class="wrapper">
     <section class="about-section">
-        <h2 class="about-title">Струнные</h2>
+        <h2 class="about-title">
+            {{ $category->Category ?? 'Все инструменты' }}
+        </h2>
         <div class="about-card">
-            <p>Струнные — инструменты, звук которых создаётся колебанием струн. Делятся на смычковые (скрипка, виолончель), щипковые (гитара, арфа) и клавишные (рояль). Широко используются в классике, джазе, роке и народной музыке.</p>
+            <p>
+                {{ $category->Description ?? 'Выберите интересующий вас вид инструментов или воспользуйтесь поиском.' }}
+            </p>
         </div>
                 
         <div class="tools-search">

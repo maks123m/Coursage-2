@@ -15,23 +15,27 @@
                 <img src="{{ asset('img/strelka1.png') }}" alt="">
             </button>
             <div class="cards-row">
-                <a href="{{ route('catalog') }}" class="type-card small text-small">
+                <a href="{{ route('catalog', ['category' => 1]) }}" class="type-card small text-small">
                     <img src="{{ asset('img/instruments/piano.png') }}" alt="">
                     <span>Электронные</span>
                 </a>
-                <a href="{{ route('catalog') }}" class="type-card medium text-medium">
+
+                <a href="{{ route('catalog', ['category' => 2]) }}" class="type-card medium text-medium">
                     <img src="{{ asset('img/instruments/baraban.jpg') }}" alt="">
                     <span>Ударные</span>
                 </a>
-                <a href="{{ route('catalog') }}" class="type-card big text-big">
+
+                <a href="{{ route('catalog', ['category' => 3]) }}" class="type-card big text-big">
                     <img src="{{ asset('img/instruments/violinchel.jpg') }}" alt="">
                     <span>Струнные</span>
                 </a>
-                <a href="{{ route('catalog') }}" class="type-card medium text-medium">
+
+                <a href="{{ route('catalog', ['category' => 4]) }}" class="type-card medium text-medium">
                     <img src="{{ asset('img/instruments/dudka.jpg') }}" alt="">
                     <span>Духовые</span>
                 </a>
-                <a href="{{ route('catalog') }}" class="type-card small text-small">
+
+                <a href="{{ route('catalog', ['category' => 5]) }}" class="type-card small text-small">
                     <img src="{{ asset('img/instruments/akkordeon.jpg') }}" alt="">
                     <span>Язычковые</span>
                 </a>

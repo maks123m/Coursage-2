@@ -32,7 +32,6 @@
                     </div>
                 @endforeach
             </div>
-
             @if($filter === 'groups' && $favoriteGroups->hasPages())
                 <div class="pagination">
                     @for ($i = 1; $i <= $favoriteGroups->lastPage(); $i++)

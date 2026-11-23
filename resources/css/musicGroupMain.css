@@ -18,6 +18,7 @@
     display: flex;
     gap: 3vw;
     flex-wrap: wrap;
+    
 }
 .filter-btn {
     background: #242424;
@@ -28,6 +29,7 @@
     cursor: pointer;
     font-size: 20px;
     font-family: 'Binggrae', 'sans-serif';
+    text-decoration: none;
 }
 .filter-btn.active {
     background: #FFA600;

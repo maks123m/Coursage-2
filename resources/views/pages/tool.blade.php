@@ -17,7 +17,6 @@
         <div class="instrument-header">
             <div class="category left">Категория: {{ $instrument->Category_ID }}</div>
             <img class="instrument-image" src="{{ asset('img/' . ($instrument->photo->Photo ?? 'default.png')) }}" alt="...">
-            <!-- Тип инструмента (пока статично) -->
             <div class="category right">Струнный</div>
         </div>
         <div class="audio-section">
