@@ -21,5 +21,9 @@ class MusicGroup extends Model
     {
         return $this->belongsTo(MediaGroup::class, 'Media_group_ID', 'Media_group_ID');
     }
+    public function favorites()
+    {
+        return $this->hasMany(Favorite::class, 'Group_ID', 'Group_ID');
+    }
 }
 

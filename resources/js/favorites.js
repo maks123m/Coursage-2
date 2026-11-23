@@ -28,9 +28,9 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 if (!data) return;
                 if (data.status === 'added') {
-                    icon.style.filter = 'invert(1)';
+                    icon.src = '/img/heart_filled.png';
                 } else if (data.status === 'removed') {
-                    icon.style.filter = 'none';
+                    icon.src = '/img/heart.png';
                 }
             })
             .catch(error => console.error('Ошибка:', error));

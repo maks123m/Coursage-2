@@ -74,7 +74,11 @@
                 <div class="group-info">
                     <span>{{ $group->Name }}</span>
                     <button class="heart-btn" data-id="{{ $group->Group_ID }}" data-type="group" style="background: none; border: none; padding: 0; cursor: pointer;">
-                        <img class="heart" src="{{ asset('img/heart.png') }}">
+                        @if(in_array($group->Group_ID, $favoriteGroupIds ?? []))
+                            <img class="heart" src="{{ asset('img/heart_filled.png') }}" alt="В избранном">
+                        @else
+                            <img class="heart" src="{{ asset('img/heart.png') }}" alt="Добавить в избранное">
+                        @endif
                     </button>
                 </div>
             </a>

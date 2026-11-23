@@ -64,7 +64,11 @@
                         <div class="tool-info">
                             <span>{{ $instrument->Name ?? 'Инструмент #' . $instrument->Instrument_ID }}</span>
                             <button class="heart-btn" data-id="{{ $instrument->Instrument_ID }}" data-type="instrument" style="background: none; border: none; padding: 0; cursor: pointer;">
-                                <img class="heart" src="{{ asset('img/heart.png') }}">
+                                @if(in_array($instrument->Instrument_ID, $favoriteInstrumentIds ?? []))
+                                    <img class="heart" src="{{ asset('img/heart_filled.png') }}" alt="В избранном">
+                                @else
+                                    <img class="heart" src="{{ asset('img/heart.png') }}" alt="Добавить в избранное">
+                                @endif
                             </button>
                         </div>
                     </a>

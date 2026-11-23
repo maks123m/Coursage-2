@@ -74,6 +74,26 @@
     color: black;
     font-size: 1.1em;
 }
+
+.heart-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.heart-btn .heart {
+    width: 24px; /* Размер сердечка */
+    height: 24px;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+
+.heart-btn .heart:hover {
+    transform: scale(1.1); /* Легкое увеличение при наведении */
+}
 @media (max-width: 800px) {
     .title {
         font-size: 6vw;

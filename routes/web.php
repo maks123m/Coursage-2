@@ -26,8 +26,8 @@ Route::get('/catalog', function (\Illuminate\Http\Request $request) {
     }
 
     $instruments = $query->paginate(6)->withQueryString();
-    
-    return view('pages.catalog', ['instruments' => $instruments]);
+    $favoriteInstrumentIds = auth()->check() ? \App\Models\Favorite::where('User_ID', auth()->id())->whereNotNull('Instrument_ID')->pluck('Instrument_ID')->toArray() : [];
+    return view('pages.catalog', ['instruments' => $instruments, 'favoriteInstrumentIds' => $favoriteInstrumentIds]);
 })->name('catalog');
 
 // Конкретный инструмент
@@ -53,8 +53,9 @@ Route::get('/groups', function (\Illuminate\Http\Request $request) {
 
 
     $groups = $query->paginate(6)->withQueryString();
-    
-    return view('pages.groups', ['groups' => $groups]);
+    $favoriteGroupIds = auth()->check() ? \App\Models\Favorite::where('User_ID', auth()->id())->whereNotNull('Group_ID')->pluck('Group_ID')->toArray() : [];
+
+    return view('pages.groups', ['groups' => $groups, 'favoriteGroupIds' => $favoriteGroupIds]);
 })->name('groups');
 
 // Опрос
@@ -63,9 +64,32 @@ Route::get('/survey', function () {
 })->name('survey');
 
 // Избранное
-Route::get('/favourites', function () {
-    return view('pages.favourites');
-})->name('favourites');
+Route::get('/favourites', function (\Illuminate\Http\Request $request) {
+    $userId = auth()->id();
+    $filter = $request->get('filter', 'all');
+
+    $groupsQuery = \App\Models\MusicGroup::whereHas('favorites', function($q) use ($userId) {
+        $q->where('User_ID', $userId);
+    });
+    
+    $instrumentsQuery = \App\Models\MusicInstrument::whereHas('favorite', function($q) use ($userId) {
+        $q->where('User_ID', $userId);
+    });
+
+    $favoriteGroups = collect();
+    $favoriteInstruments = collect();
+
+    if ($filter === 'groups') {
+        $favoriteGroups = $groupsQuery->paginate(6)->withQueryString();
+    } elseif ($filter === 'instruments') {
+        $favoriteInstruments = $instrumentsQuery->paginate(6)->withQueryString();
+    } else {
+        $favoriteGroups = $groupsQuery->take(6)->get();
+        $favoriteInstruments = $instrumentsQuery->take(6)->get();
+    }
+
+    return view('pages.favourites', compact('favoriteGroups', 'favoriteInstruments', 'filter'));
+})->middleware('auth')->name('favourites');
 
 Route::get('/group/{id}', function ($id) {
     $group = \App\Models\MusicGroup::findOrFail($id);

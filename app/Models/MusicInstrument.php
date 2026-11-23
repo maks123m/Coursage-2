@@ -18,4 +18,8 @@ class MusicInstrument extends Model
     {
         return $this->belongsTo(\App\Models\PhotoInstrument::class, 'Photo_ID', 'Photo_ID');
     }
+    public function favorite()
+    {
+        return $this->hasMany(Favorite::class, 'Instrument_ID', 'Instrument_ID');
+    }
 }

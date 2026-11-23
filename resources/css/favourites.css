@@ -76,8 +76,8 @@
     font-size: 1.4em;
 }
 .group-info .heart {
-    width: 1em;
-    height: 1em;
+    width: 24px;
+    height: 24px;
     object-fit: contain;
 }
 .tool-card {
@@ -105,10 +105,9 @@
     border-radius: 0 0 35px 35px;
 }
 .tool-info .heart {
-    width: 1.4em;
-    height: 1.4em;
+    width: 24px;
+    height: 24px;
     object-fit: contain;
-    cursor: pointer;
 }
 @media (max-width: 800px) {
     .cards-grid {
