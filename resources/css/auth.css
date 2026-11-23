@@ -45,20 +45,20 @@
 }
 
 .auth-btn {
+    display: block;
     background-color: #FFA600;
-    color: black;
     border: none;
     border-radius: 8px;
-    padding: 1.5vh;
+    padding: 1.5vh 4vw;
     font-size: 1.5vw;
     font-family: 'Binggrae', sans-serif;
     cursor: pointer;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 2vh;
-    transition: 0.3s;
-    width: 50%;
-    align-self: center;
+    
 }
-
 .auth-btn:hover {
     background-color: #e69500;
 }

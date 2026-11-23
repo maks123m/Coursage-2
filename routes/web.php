@@ -62,6 +62,7 @@ Route::get('/groups', function (\Illuminate\Http\Request $request) {
 Route::get('/survey', function () {
     return view('pages.survey');
 })->name('survey');
+Route::post('/survey', [\App\Http\Controllers\SurveyController::class, 'result'])->name('survey.result');
 
 // Избранное
 Route::get('/favourites', function (\Illuminate\Http\Request $request) {

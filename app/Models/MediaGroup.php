@@ -8,4 +8,5 @@ class MediaGroup extends Model
 {
     protected $table = 'media_groups';
     protected $primaryKey = 'Media_group_ID';
+    protected $fillable = ['Media_file', 'Video_File'];
 }
