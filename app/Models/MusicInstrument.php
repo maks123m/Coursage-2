@@ -22,4 +22,8 @@ class MusicInstrument extends Model
     {
         return $this->hasMany(Favorite::class, 'Instrument_ID', 'Instrument_ID');
     }
+    public function sound()
+    {
+        return $this->belongsTo(\App\Models\InstrumentSound::class, 'Sound_ID', 'Sound_ID');
+    }
 }

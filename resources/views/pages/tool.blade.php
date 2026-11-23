@@ -13,23 +13,22 @@
 
 <div class="wrapper">
     <div class="instrument-page">
-        <!-- Выводим название -->
         <h2 class="instrument-title">{{ $instrument->Name ?? 'Инструмент' }}</h2>
         <div class="instrument-header">
             <div class="category left">Категория: {{ $instrument->Category_ID }}</div>
-            <!-- Картинка из базы -->
             <img class="instrument-image" src="{{ asset('img/' . ($instrument->photo->Photo ?? 'default.png')) }}" alt="...">
             <!-- Тип инструмента (пока статично) -->
             <div class="category right">Струнный</div>
         </div>
         <div class="audio-section">
-            <!-- Аудио-заглушка -->
-            <div class="audio-player">
-                <img class="note-icon" src="{{ asset('img/Nota.png') }}" alt="Нота">
-                <div class="sound">
-                    <img class="waveform" src="{{ asset('img/zyyk2.png') }}">
-                </div>
-            </div>
+            @if($instrument->sound)
+                <audio controls style="width: 100%; max-width: 400px; margin: 20px auto; display: block;">
+                    <source src="{{ asset($instrument->sound->Sound) }}" type="audio/mpeg">
+                    Ваш браузер не поддерживает аудио.
+                </audio>
+            @else
+                <p style="color: #F6F6F6; text-align: center;">Аудио для этого инструмента пока нет.</p>
+            @endif
         </div>
         <div>
             <h3 class="section-title">Похожие инструменты</h3>

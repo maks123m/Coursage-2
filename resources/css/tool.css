@@ -46,7 +46,7 @@
     border-radius: 100px 0 0 100px;
 }
 .instrument-image {
-    width: 30vw;
+    width: 400px;
     transform: rotate(90deg);
 }
 .audio-section {
