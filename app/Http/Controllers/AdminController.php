@@ -136,15 +136,27 @@ class AdminController extends Controller
             'Genre_ID' => 'required',
             'Group_composition' => 'required',
             'Photo' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'Video_File' => 'nullable|mimes:mp4,mov,webm|max:51200',
         ]);
 
         // Загружаем картинку
-        $imageName = time().'.'.$request->Photo->extension();  
+        $imageName = time().'.'.$request->Photo->extension();
         $request->Photo->move(public_path('img/groups'), $imageName);
         $imagePath = 'groups/' . $imageName;
 
-        // Создаем медиа-запись (в вашей схеме она называется media_groups)
-        $media = \App\Models\MediaGroup::create(['Media_file' => $imagePath, 'Video_File' => null]);
+        // Загружаем видео, если оно пришло
+        $videoPath = null;
+        if ($request->hasFile('Video_File')) {
+            $videoName = time().'_video.'.$request->Video_File->extension();
+            $request->Video_File->move(public_path('videos'), $videoName);
+            $videoPath = 'videos/' . $videoName;
+        }
+
+        // Создаем медиа-запись (одну!)
+        $media = \App\Models\MediaGroup::create([
+            'Media_file' => $imagePath,
+            'Video_File' => $videoPath,
+        ]);
 
         // Создаем группу
         MusicGroup::create([
@@ -157,6 +169,7 @@ class AdminController extends Controller
 
         return redirect()->route('admin.groups.index')->with('success', 'Группа добавлена!');
     }
+
 
     // 4. Форма редактирования группы
     public function editGroup($id)
@@ -184,6 +197,22 @@ class AdminController extends Controller
             'Genre_ID' => $request->Genre_ID,
             'Group_composition' => $request->Group_composition,
         ]);
+        if ($request->hasFile('Video_File')) {
+            $videoName = time().'_video.'.$request->Video_File->extension();
+            $request->Video_File->move(public_path('videos'), $videoName);
+
+            $media = $group->media;
+            if ($media) {
+                $media->update(['Video_File' => 'videos/' . $videoName]);
+            } else {
+                $media = \App\Models\MediaGroup::create([
+                    'Media_file' => 'groups/default.jpg',
+                    'Video_File' => 'videos/' . $videoName,
+                ]);
+                $group->update(['Media_group_ID' => $media->Media_group_ID]);
+            }
+        }
+
 
         return redirect()->route('admin.groups.index')->with('success', 'Группа обновлена!');
     }

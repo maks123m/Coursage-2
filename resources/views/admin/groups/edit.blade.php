@@ -30,6 +30,9 @@
             @endforeach
         </select>
 
+        <label>Новое видео (mp4, необязательно)</label>
+        <input type="file" name="Video_File" accept="video/mp4">        
+
         <button type="submit">Обновить</button>
     </form>
 </div>

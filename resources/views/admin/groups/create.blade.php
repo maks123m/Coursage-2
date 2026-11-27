@@ -32,6 +32,10 @@
         <label>Фотография группы</label>
         <input type="file" name="Photo" required>
 
+        
+        <label>Видео (необязательно, mp4)</label>
+        <input type="file" name="Video_File" accept="video/mp4">
+
         <button type="submit">Сохранить</button>
     </form>
 </div>

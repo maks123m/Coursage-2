@@ -21,8 +21,6 @@ class SurveyController extends Controller
         arsort($scores);
         
         $winningTagId = array_key_first($scores);
-
-        // Ищем инструменты с победившим тегом
         $recommended = MusicInstrument::where('Tag_ID', $winningTagId)->take(3)->get();
 
         return view('pages.survey', ['recommended' => $recommended]);

@@ -83,11 +83,6 @@
 
 
 @media (max-width: 800px) {
-    .auth-input[type="password"] {
-        font-size: 3vw;
-    }
-}
-@media (max-width: 800px) {
     .auth-title { font-size: 5vw; }
     .auth-label { font-size: 3vw; }
     .auth-input { font-size: 3vw; }

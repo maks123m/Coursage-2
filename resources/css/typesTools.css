@@ -8,13 +8,21 @@
     color: #F6F6F6;
     margin-bottom: 50px;
 }
+
+/* Слайдер: стрелки по бокам, лента между ними.
+   Вертикальный padding даёт место выросшей активной карточке,
+   чтобы её не обрезало сверху и снизу */
 .slider {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 2vw;
+    overflow: hidden;
+    padding: 0;
 }
+
+
 .arrow-btn {
+    flex-shrink: 0;
     min-width: 4vw;
     min-height: 4vw;
     background: #ffffff;
@@ -29,25 +37,37 @@
     width: 2.5vw;
     height: 2.5vw;
 }
+
 .cards-row {
+    flex: 1;
     display: flex;
-    gap: 3vw;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    padding-bottom: 20px;
+    align-items: center;
+    gap: 2vw;        /* было 3vw */
+    padding: 0 2vw;  /* было 0 4vw */
+    overflow: hidden;
+    height: 47vh;
 }
 
 .type-card {
     position: relative;
-    border-radius: 18px;
+    width: 11vw;     /* было 15vw */
+    height: 35vh;
+    flex-shrink: 0;
+    border-radius: 12px;
     overflow: hidden;
-    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s ease;
+    transform-origin: center center;
 }
+
+
+
 .type-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
+
 .type-card span {
     position: absolute;
     bottom: 0;
@@ -59,36 +79,31 @@
     font-size: 1.4vw;
     color: white;
 }
-.type-card.small {
-    width: 12vw;
-    height: 30vh;
+
+/* Центральная — крупнее, соседи — чуть меньше базового размера */
+.type-card.active {
+    transform: scale(1.15);  /* было 1.25 */
+    opacity: 1;
+    z-index: 2;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
 }
-.type-card.medium {
-    width: 15vw;
-    height: 35vh;
+.type-card.neighbor {
+    transform: scale(0.88);
 }
-.type-card.big {
-    width: 17vw;
-    height: 45vh;
-}
-.type-card.text-small span {
-    font-size: 1.1vw;
-}
-.type-card.text-medium span {
-    font-size: 1.5vw;
-}
-.type-card.text-big span {
-    font-size: 2vw;
-}
+
 @media (max-width: 800px) {
     .arrow-btn {
         display: none;
+    }
+    .slider {
+        padding: 2vh 0;
     }
     .cards-row {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 4vw;
         justify-items: center;
+        padding: 0;
     }
     .type-card.small,
     .type-card.medium,
@@ -99,10 +114,16 @@
     .type-card:nth-child(5) {
         grid-column: 1 / -1;
     }
-    .type-card.text-small span,
-    .type-card.text-medium span,
-    .type-card.text-big span {
+    .type-card span {
         font-size: 2.5vw;
+    }
+    /* На мобильном карусель превращается в сетку —
+       масштабирование почти не нужно, иначе карточки наедут друг на друга */
+    .type-card.active {
+        transform: scale(1.05);
+    }
+    .type-card.neighbor {
+        transform: none;
     }
 }
 @media (max-width: 425px) {
@@ -114,9 +135,7 @@
     .type-card.big {
         width: 60vw;
     }
-    .type-card.text-small span,
-    .type-card.text-medium span,
-    .type-card.text-big span {
+    .type-card span {
         font-size: 5vw;
     }
     .instrument-types h2 {
