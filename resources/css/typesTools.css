@@ -31,9 +31,13 @@
 }
 .cards-row {
     display: flex;
-    align-items: center;
     gap: 3vw;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 20px;
 }
+
+
 .type-card {
     position: relative;
     border-radius: 18px;

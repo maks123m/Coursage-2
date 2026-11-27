@@ -5,6 +5,9 @@
 @push('styles')
     @vite('resources/css/typesTools.css')
 @endpush
+@push('scripts')
+    @vite('resources/js/types-tools.js')
+@endpush
 
 @section('content')
 <div class="wrapper">

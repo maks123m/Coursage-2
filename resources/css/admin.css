@@ -1,0 +1,139 @@
+/* admin.css */
+.admin-wrapper {
+    padding-top: 40px;
+    font-family: 'Binggrae', sans-serif;
+    color: #F6F6F6;
+}
+
+.admin-title {
+    text-align: center;
+    font-size: 2.5vw;
+    margin-bottom: 20px;
+}
+
+.admin-nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.admin-nav a {
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: 'Binggrae', sans-serif;
+    font-size: 1.2vw;
+    transition: 0.3s;
+}
+
+.admin-nav a.active {
+    background: #FFA600;
+    color: black;
+}
+
+.admin-nav a.inactive {
+    background: #323232;
+    color: #F6F6F6;
+    border: 2px solid #FFA600;
+}
+
+.admin-table {
+    width: 100%;
+    max-width: 90%;
+    margin: 0 auto; 
+    background: #323232;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.admin-table thead {
+    background: #444;
+}
+
+.admin-table th, .admin-table td {
+    padding: 10px;
+    text-align: left;
+}
+
+.admin-table tr {
+    border-bottom: 1px solid #444;
+}
+
+.btn-edit {
+    background: #FFA600;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9vw;
+}
+
+.btn-delete {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Binggrae';
+    font-size: 0.9vw;
+}
+
+.admin-form {
+    background: #323232;
+    padding: 30px;
+    border-radius: 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.admin-form label {
+    color: #F6F6F6;
+}
+
+.admin-form input, .admin-form textarea, .admin-form select {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    font-family: 'Binggrae';
+}
+
+.admin-form button {
+    background: #FFA600;
+    color: black;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Binggrae';
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: bold;
+}
+.admin-content-block {
+    background: #323232;
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 90%;
+    margin: 0 auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.admin-block-title {
+    color: #FFA600;
+    font-family: 'Binggrae';
+    font-size: 1.5vw;
+    margin-bottom: 20px;
+}
+
+.admin-empty-text {
+    color: #ccc;
+    font-family: 'Binggrae';
+    font-size: 1.1vw;
+}

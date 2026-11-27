@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class PhotoInstrument extends Model
 {
-    protected $table = 'photo_instruments'; protected $primaryKey = 'Photo_ID';
+    protected $table = 'photo_instruments'; 
+    protected $primaryKey = 'Photo_ID';
+    protected $fillable = ['Photo'];
+    public $timestamps = false;
 }

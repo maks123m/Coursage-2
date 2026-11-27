@@ -11,7 +11,7 @@ class MusicInstrument extends Model
 
     protected $table = 'music_instruments';
     protected $primaryKey = 'Instrument_ID';
-    protected $fillable = ['Sound_ID', 'Photo_ID', 'Tag_ID', 'Category_ID', 'Description'];
+    protected $fillable = ['Sound_ID', 'Photo_ID', 'Tag_ID', 'Category_ID', 'Description', 'Name'];
     public $timestamps = false;
 
         public function photo()

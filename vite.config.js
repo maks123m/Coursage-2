@@ -21,6 +21,7 @@ export default defineConfig({
                 'resources/css/feedback.css',
                 'resources/js/feedback.js',
                 'resources/js/favorites.js',
+                'resources/js/types-tools.js',
                 'resources/js/app.js'],
             refresh: true,
             fonts: [

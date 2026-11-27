@@ -5,6 +5,7 @@ use App\Models\MusicGroup;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\AdminController;
 
 // Главная
 Route::get('/', function () {
@@ -109,3 +110,26 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('/feedback', [FeedbackController::class, 'store'])->middleware('auth')->name('feedback.store');
 
 Route::post('/favorite/toggle', [FavoriteController::class, 'toggle'])->name('favorite.toggle');
+
+//Админка
+Route::middleware(['admin'])->group(function () {
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/admin/instrument/create', [AdminController::class, 'createInstrument'])->name('admin.instrument.create');
+    Route::post('/admin/instrument/store', [AdminController::class, 'storeInstrument'])->name('admin.instrument.store');
+    Route::delete('/admin/feedback/{id}', [AdminController::class, 'destroyFeedback'])->name('admin.feedback.destroy');
+    //Инструменты
+    Route::get('/admin/instruments', [AdminController::class, 'instrumentsIndex'])->name('admin.instruments.index');
+    Route::get('/admin/instrument/{id}/edit', [AdminController::class, 'editInstrument'])->name('admin.instrument.edit');
+    Route::put('/admin/instrument/{id}', [AdminController::class, 'updateInstrument'])->name('admin.instrument.update');
+    Route::delete('/admin/instrument/{id}', [AdminController::class, 'destroyInstrument'])->name('admin.instrument.destroy');
+    // Группы
+    Route::get('/admin/groups', [AdminController::class, 'groupsIndex'])->name('admin.groups.index');
+    Route::get('/admin/group/create', [AdminController::class, 'createGroup'])->name('admin.group.create');
+    Route::post('/admin/group/store', [AdminController::class, 'storeGroup'])->name('admin.group.store');
+    Route::get('/admin/group/{id}/edit', [AdminController::class, 'editGroup'])->name('admin.group.edit');
+    Route::put('/admin/group/{id}', [AdminController::class, 'updateGroup'])->name('admin.group.update');
+    Route::delete('/admin/group/{id}', [AdminController::class, 'destroyGroup'])->name('admin.group.destroy');
+});
+
+
+
