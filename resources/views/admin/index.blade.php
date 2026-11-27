@@ -15,11 +15,8 @@
         <a href="{{ route('admin.instruments.index') }}" class="inactive">Инструменты</a>
         <a href="{{ route('admin.groups.index') }}" class="inactive">Группы</a>
     </div>
-
-    <!-- Блок заявок -->
     <div class="admin-content-block">
         <h2 class="admin-block-title">Заявки от пользователей</h2>
-        
         @if($feedbacks->isEmpty())
             <p class="admin-empty-text">Заявок пока нет.</p>
         @else

@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'Binggrae';
-    src: url('../fonts/Binggrae-Bold.otf') format('opentype');
+    src: url('/fonts/Binggrae-Bold.otf') format('opentype');
 }
 @font-face {
     font-family: 'Alatsi';
-    src: url('../fonts/Alatsi-Regular.ttf') format('opentype');
+    src: url('/fonts/Alatsi-Regular.ttf') format('opentype');
 }
 * {
     margin: 0;
